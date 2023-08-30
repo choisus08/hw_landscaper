@@ -9,13 +9,30 @@ def use_scissors():
     while (True):
         user_input = int(input(""" 
                         Would you like to use the scissors to work and earn $5?
-                        [1] Yes! My teeth need a break!
+                        [1] Yes! My teeth hurt!
                         [2] No, I'll keep using my chompers 
                         """))
         if (user_input == 1):
             game_data["money"] += 5
             print(f"You now have ${game_data['money']}")
 
+            # At any point, if you are currently using rusty scissors, you can buy an old-timey push lawnmower for $25. You can do this once, assuming you have enough money.
+            if (game_data["money"] >= 25):
+                user_input = int(input("""
+                                Would you like to purchase an old-timey push lawnmower for $25?
+                                [1] Yes! My fingers can use a break!
+                                [2] No, I'll still use the scissors and save
+                                """))
+
+                if (user_input == 1):
+                    game_data["money"] -= 25
+                    print(f"You now have ${game_data['money']}")
+
+                    if (game_data["money"] == 0):
+                        use_teeth()
+                        
+                if (user_input == 2):
+                    continue            
 
         if (user_input == 2):
             use_teeth()
