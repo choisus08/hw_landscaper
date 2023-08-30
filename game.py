@@ -54,7 +54,7 @@ def use_old_lawnmower():
             print(f"You now have ${game_data['money']}")
 
             # At any point, if you are currently using the old-timey push lawnmower, you can buy a fancy battery-powered lawnmower for $250. You can do this once, assuming you have enough money.
-            if (game_data["money"] == 250):
+            if (game_data["money"] >= 250):
                 user_input = int(input("""
                                 This old lawnmower is not efficient, how about upgrading to a fancy battery-powered one for $250?
                                 [1] Yes! That'll make the work so much easier to do!
@@ -95,6 +95,7 @@ def use_battery_lawnmower():
                 if (user_input == 1):
                     game_data["money"] -= 500
                     print(f"You now have ${game_data['money']}")
+                    use_students()
 
                 if (user_input == 2):
                     continue
@@ -102,6 +103,22 @@ def use_battery_lawnmower():
         if (user_input == 2):
             use_old_lawnmower()
 
+
+# Using the the team of starving students, you can spend the day cutting lawns and make $250. You can do this as much as you want.
+def use_students():
+    while (True):
+        user_input = int(input(""" 
+                        Do you want your team of students to spend the day cutting lawns and earn $250?
+                        [1] Yes!
+                        [2] Not today
+                        """))
+        
+        if (user_input == 1):
+            game_data["money"] += 250
+            print(f"You now have ${game_data['money']}")
+        
+        if (user_input == 2):
+            continue
 
 # You are starting a landscaping business, but all you have are your teeth.
 # Using just your teeth, you can spend the day cutting lawns and make $1. You can do this as much as you want.
