@@ -54,7 +54,7 @@ def use_old_lawnmower():
             print(f"You now have ${game_data['money']}")
 
             # At any point, if you are currently using the old-timey push lawnmower, you can buy a fancy battery-powered lawnmower for $250. You can do this once, assuming you have enough money.
-            if (game_data["money"] >= 250):
+            if (game_data["money"] == 250):
                 user_input = int(input("""
                                 This old lawnmower is not efficient, how about upgrading to a fancy battery-powered one for $250?
                                 [1] Yes! That'll make the work so much easier to do!
@@ -71,7 +71,23 @@ def use_old_lawnmower():
 
         if (user_input == 2):
             use_scissors()
-        
+
+
+# Using the the fancy battery-powered lawnmower, you can spend the day cutting lawns and make $100. You can do this as much as you want.
+def use_battery_lawnmower():
+    while (True):
+        user_input = int(input("""
+                        Would you like to cut lawns using the fancy battery-powered lawnmower to earn $100? 
+                        [1] Yes, whatever will get the job done better & quicker!
+                        [2] No, I'll use it another day
+                        """))
+        if (user_input == 1):
+            game_data["money"] += 100
+            print(f"You now have ${game_data['money']}")
+
+        if (user_input == 2):
+            use_old_lawnmower()
+
 
 # You are starting a landscaping business, but all you have are your teeth.
 # Using just your teeth, you can spend the day cutting lawns and make $1. You can do this as much as you want.
