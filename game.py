@@ -27,7 +27,10 @@ def use_scissors():
                 if (user_input == 1):
                     game_data["money"] -= 25
                     print(f"You now have ${game_data['money']}")
+                    use_lawnmower()
 
+
+                    # if user has no money, start over
                     if (game_data["money"] == 0):
                         use_teeth()
                         
@@ -36,6 +39,23 @@ def use_scissors():
 
         if (user_input == 2):
             use_teeth()
+
+
+# Using the old-timey push lawnmower, you can spend the day cutting lawns and make $50. You can do this as much as you want.
+def use_lawnmower():
+    while (True):
+        user_input = int(input("""  
+                        Would you like to use the old-timey push lawnmower to cut lawns and earn $50?
+                        [1] Yes!
+                        [2] No, thank you
+                        """))
+        
+        if (user_input == 1):
+            game_data["money"] += 50
+            print(f"You now have ${game_data['money']}")
+
+        if (user_input == 2):
+            use_scissors()
         
 
 # You are starting a landscaping business, but all you have are your teeth.
