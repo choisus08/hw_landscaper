@@ -86,7 +86,7 @@ def use_battery_lawnmower():
             print(f"You now have ${game_data['money']}")
 
                 # At any point, if you are currently using the fancy battery-powered lawnmower, you can hire a team of starving students for $500. You can do this once, assuming you have enough money.
-            if (game_data["money"] == 500):
+            if (game_data["money"] >= 500):
                 user_input = int(input(""" 
                                 Do you want to hire a team of starving students for $500?
                                 [1] Yes! I'll be glad to hire them!
@@ -166,6 +166,7 @@ def use_teeth():
 
 
         if (user_input == 2):
+            print("See you tomorrow")
             game_data["quit"] = True
 
         if (game_data["quit"] == True):
