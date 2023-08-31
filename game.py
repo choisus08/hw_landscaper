@@ -116,9 +116,20 @@ def use_students():
         if (user_input == 1):
             game_data["money"] += 250
             print(f"You now have ${game_data['money']}")
+            if (game_data["money"] >= 1000):
+                print("You won the game!")
+                game_over()
         
         if (user_input == 2):
-            continue
+            use_battery_lawnmower()
+    
+
+# You win the game when you have a team of starving students and $1000. In this situation, send a message to the user telling them, they've won.
+def game_over():
+    while (True):
+        if (game_data["quit"] == True):
+            break
+ 
 
 # You are starting a landscaping business, but all you have are your teeth.
 # Using just your teeth, you can spend the day cutting lawns and make $1. You can do this as much as you want.
